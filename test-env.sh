@@ -169,9 +169,9 @@ async function initDatabase() {
     try {
         pool = mysql.createPool(dbConfig);
         await pool.execute('SELECT 1');
-        console.log('✅ Database connected successfully');
+        console.log('Database connected successfully');
     } catch (error) {
-        console.error('❌ Database connection failed:', error.message);
+        console.error('Database connection failed:', error.message);
         // Don't exit, allow app to run without database
     }
 }
@@ -194,7 +194,7 @@ app.get('/health', (req, res) => {
 // Main API endpoint
 app.get('/', (req, res) => {
     res.json({
-        message: '🚀 DevSecOps API is running!',
+        message: 'DevSecOps API is running!',
         timestamp: new Date().toISOString(),
         environment: process.env.NODE_ENV || 'development',
         version: process.env.npm_package_version || '1.0.0',
@@ -314,13 +314,13 @@ async function startServer() {
     await initDatabase();
     
     app.listen(PORT, () => {
-        console.log(🚀 DevSecOps API server running on port ${PORT});
-        console.log(📊 Health check: http://localhost:${PORT}/health);
-        console.log(🔗 API status: http://localhost:${PORT}/api/status);
-        console.log(👥 Users API: http://localhost:${PORT}/api/users);
-        console.log(📋 Projects API: http://localhost:${PORT}/api/projects);
-        console.log(💻 System info: http://localhost:${PORT}/api/system);
-        console.log(🌍 Environment: ${process.env.NODE_ENV || 'development'});
+        console.log(DevSecOps API server running on port ${PORT});
+        console.log(Health check: http://localhost:${PORT}/health);
+        console.log(API status: http://localhost:${PORT}/api/status);
+        console.log(Users API: http://localhost:${PORT}/api/users);
+        console.log(Projects API: http://localhost:${PORT}/api/projects);
+        console.log(System info: http://localhost:${PORT}/api/system);
+        console.log(Environment: ${process.env.NODE_ENV || 'development'});
     });
 }
 
@@ -467,10 +467,10 @@ echo "Restarting DevSecOps application..."
 sudo -u ubuntu pm2 restart devsecops-app
 
 if [ $? -eq 0 ]; then
-    echo "✅ Application restarted successfully!"
+    echo "Application restarted successfully!"
     echo "Check status with: /usr/local/bin/app-status.sh"
 else
-    echo "❌ Application restart failed!"
+    echo "Application restart failed!"
     exit 1
 fi
 EOF
@@ -501,10 +501,10 @@ echo "Restarting application..."
 sudo -u ubuntu pm2 restart devsecops-app
 
 if [ $? -eq 0 ]; then
-    echo "✅ Application deployed successfully!"
+    echo "Application deployed successfully!"
     echo "Check status with: /usr/local/bin/app-status.sh"
 else
-    echo "❌ Application deployment failed!"
+    echo "Application deployment failed!"
     exit 1
 fi
 EOF
@@ -525,30 +525,29 @@ print_status "DevSecOps application deployment completed!"
 
 echo ""
 echo "=== Deployment Summary ==="
-echo "✅ Express.js Application: Deployed and running"
-echo "✅ Security Middleware: Helmet, CORS, Rate Limiting"
-echo "✅ Logging: Morgan and PM2 logs configured"
-echo "✅ Database Integration: MySQL connection configured"
-echo "✅ PM2 Process Manager: Application managed"
+echo "Express.js Application: Deployed and running"
+echo "Security Middleware: Helmet, CORS, Rate Limiting"
+echo "Logging: Morgan and PM2 logs configured"
+echo "Database Integration: MySQL connection configured"
+echo "PM2 Process Manager: Application managed"
 echo ""
 echo "=== Application Information ==="
-echo "🌐 Application URL: http://$(curl -s ifconfig.me):3000"
-echo "💚 Health Check: http://$(curl -s ifconfig.me):3000/health"
-echo "🔗 API Status: http://$(curl -s ifconfig.me):3000/api/status"
-echo "👥 Users API: http://$(curl -s ifconfig.me):3000/api/users"
-echo "📋 Projects API: http://$(curl -s ifconfig.me):3000/api/projects"
-echo "💻 System Info: http://$(curl -s ifconfig.me):3000/api/system"
+echo "Application URL: http://$(curl -s ifconfig.me):3000"
+echo "Health Check: http://$(curl -s ifconfig.me):3000/health"
+echo "API Status: http://$(curl -s ifconfig.me):3000/api/status"
+echo "Users API: http://$(curl -s ifconfig.me):3000/api/users"
+echo "Projects API: http://$(curl -s ifconfig.me):3000/api/projects"
+echo "System Info: http://$(curl -s ifconfig.me):3000/api/system"
 echo ""
 echo "=== Management Commands ==="
-echo "📊 App Status: /usr/local/bin/app-status.sh"
-echo "🔄 Restart App: /usr/local/bin/restart-app.sh"
-echo "🚀 Deploy Updates: /usr/local/bin/deploy-app.sh"
-echo "📝 View Logs: sudo -u ubuntu pm2 logs devsecops-app"
-echo "⚙ PM2 Monitor: sudo -u ubuntu pm2 monit"
+echo "App Status: /usr/local/bin/app-status.sh"
+echo "Restart App: /usr/local/bin/restart-app.sh"
+echo "Deploy Updates: /usr/local/bin/deploy-app.sh"
+echo "View Logs: sudo -u ubuntu pm2 logs devsecops-app"
+echo "PM2 Monitor: sudo -u ubuntu pm2 monit"
 echo ""
 echo "=== Development Commands ==="
-echo "🔧 Development Mode: cd /var/www/app && npm run dev"
-echo "🧹 Lint Code: cd /var/www/app && npm run lint"
-echo "🎨 Format Code: cd /var/www/app && npm run lint:fix"
+echo "Development Mode: cd /var/www/app && npm run dev"
+echo "Lint Code: cd /var/www/app && npm run lint"
+echo "Format Code: cd /var/www/app && npm run lint:fix"
 echo ""
-print_warning "Next: Run install_gitlab.sh to set up GitLab and CI/CD pipeline"
